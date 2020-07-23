@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "http://viamsterdam.dev/coding-challenge/feed.json",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }

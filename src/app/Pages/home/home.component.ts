@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Creet } from '../../Data Models/creet.model';
+import { DataService } from '../../Services/data.service';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  //create array or creet objects
+  creets$: any;
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService) { }
+
+  //on init subscribe to data in service
+  ngOnInit() {
+    this.dataService.getCreets().subscribe(data => this.creets$ = data);
+    console.log(this.dataService.getCreets().subscribe(data => this.creets$ = data));
+    return;
   }
 
 }

@@ -1,3 +1,29 @@
-<div *ngIf="creets$">
-    <p>{{creets$.feed | json}}</p>
+
+
+
+
+<div *ngFor="let creet of creets$.feed">
+<!-- Card Regular -->
+<div class="card card-cascade">
+  
+    <!-- Card content -->
+    <div class="card-body card-body-cascade text-center">
+
+    <img src="{{creet.user.avatar}}" style="width: 50px;height: 50px;">
+  
+      <!-- Title -->
+      <h4 class="card-title"><strong>{{creet.user.username}}</strong></h4>
+      <!-- Subtitle -->
+      <h6 class="font-weight-bold indigo-text py-2">{{creet.created_at | date}}</h6>
+      <!-- Text -->
+      <p class="card-text">{{creet.text}}
+      </p>
+    </div>
+        <!-- Card footer -->
+        <div class="card-footer text-muted text-center mt-4">
+            Likes: {{creet.likes}}
+          </div>
+  </div>
+  <!-- Card Regular -->
+
 </div>

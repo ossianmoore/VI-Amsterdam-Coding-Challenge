@@ -17,8 +17,11 @@ export class HomeComponent implements OnInit {
 
   //on init subscribe to data in service
   ngOnInit() {
-    this.dataService.getCreets().subscribe(data => this.creets$ = data);
-    console.log(this.dataService.getCreets().subscribe(data => this.creets$ = data));
+    //this.dataService.getCreets().subscribe(data => this.creets$ = data);
+    this.dataService.getCreets().toPromise().then(data => {
+      console.log(data);
+      this.creets$ = data;
+    });
     return;
   }
 
